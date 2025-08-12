@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  ButtonApp.swift
 //  Grimorio
 //
 //  Created by Gabriel Kowaleski on 07/08/25.
@@ -16,7 +16,7 @@ struct ButtonApp: View {
             .foregroundStyle(.accent)
             .padding(.horizontal, 16)
             .background(
-                Image(.botao)
+                Image(.corner)
                     .resizable()
                     .scaledToFill()
             )
@@ -24,5 +24,5 @@ struct ButtonApp: View {
 }
 
 #Preview {
-    ButtonApp(text: "")
+    ButtonApp(text: "Adicionar")
 }

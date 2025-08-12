@@ -12,7 +12,10 @@ import SwiftData
 struct GrimorioApp: App {
     var body: some Scene {
         WindowGroup {
-            Personagem_ES()
+            NavigationStack {
+                CharactersView()
+            }
         }
+        .modelContainer(for: Character.self)
     }
 }

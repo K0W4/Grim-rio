@@ -12,7 +12,7 @@ struct CharactersAddView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(alignment: .leading) {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Nome:")
@@ -26,36 +26,67 @@ struct CharactersAddView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .foregroundStyle(.backgroundTertiary))
                     }
-                    .padding(.vertical, 24)
-                    .padding(.horizontal)
-                    .navigationTitle(Text("Novo Personagem"))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(.backgroundSecondary, for: .navigationBar)
-                    .toolbarBackgroundVisibility(.visible, for: .navigationBar)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button {
-                                dismiss()
-                            } label: {
-                                HStack {
-                                    Image(systemName: "chevron.left")
-                                    
-                                    Text("Voltar")
-                                }
-                                .foregroundStyle(.accent)
-                            }
-                        }
+                    
+                    ZStack {
+                        Image(.attributes)
                         
-                        ToolbarItem(placement: .topBarTrailing) {
-                            Button {
+                        VStack() {
+                            HStack {
+                                Button {
+                                    
+                                } label: {
+                                    Text("-")
+                                        .foregroundColor(.red)
+                                }
                                 
-                            } label: {
-                                Text("Adicionar")
+                                Text("0")
+                                    .foregroundStyle(.red)
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Text("+")
+                                        .foregroundColor(.red)
+                                }
                             }
                         }
                     }
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Origem:")
+                            .font(.system(.body, weight: .semibold))
+                    }
                 }
             }
+            .padding(.vertical, 24)
+            .padding(.horizontal)
+            .navigationTitle(Text("Novo Personagem"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.backgroundSecondary, for: .navigationBar)
+            .toolbarBackgroundVisibility(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.left")
+                            
+                            Text("Voltar")
+                        }
+                        .foregroundStyle(.accent)
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        
+                    } label: {
+                        Text("Adicionar")
+                    }
+                }
+            }
+
         }
     }
 }
