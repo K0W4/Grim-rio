@@ -21,7 +21,7 @@ struct AttributeControl: View {
                 .font(.system(.largeTitle, weight: .semibold))
                 .frame(width: 30)
             
-            Button(action: { value += 1 }) {
+            Button(action: { if value < 5 { value += 1 } }) {
                 Text("+")
                     .font(.system(.largeTitle, weight: .semibold))
             }

@@ -11,12 +11,9 @@ import SwiftData
 struct CharactersView: View {
     @Environment(\.modelContext) var modelContext
     
-    @State var addCharacter: Bool = false
+    @Query(sort: \Character.name) private var characters: [Character]
     
-    @State var characters: [Character] = [
-        Character(name: "Lucas", origin: .academic, clas: .combatant, trail: .annihilator, nex: .eighty),
-        Character(name: "Rafael", origin: .amnesic, clas: .occultist, trail: .conduit, nex: .sixty)
-    ]
+    @State var addCharacter: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -24,14 +21,19 @@ struct CharactersView: View {
                 if characters.isEmpty {
                     CharactersEmptyView(addCharacter: $addCharacter)
                 } else {
-                    List(characters) { characters in
-                        
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            ForEach(characters) { character in
+                                CardCharacter(character: character)
+                            }
+                        }
+                        .padding()
                     }
                 }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.top, 97)
+        .padding(.top, characters.isEmpty ? 97 : 24)
         .background(.backgroundPrimary)
         .navigationTitle(Text("Personagens"))
         .toolbarBackground(.backgroundSecondary, for: .navigationBar)
