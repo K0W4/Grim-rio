@@ -24,7 +24,9 @@ struct CharactersView: View {
                     ScrollView {
                         VStack(spacing: 16) {
                             ForEach(characters) { character in
-                                CardCharacter(character: character)
+                                NavigationLink(destination: SheetView(character: character)) {
+                                    CardCharacter(character: character)
+                                }
                             }
                         }
                         .padding()
