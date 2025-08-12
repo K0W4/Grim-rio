@@ -43,7 +43,7 @@ Com ele, você pode criar, personalizar e gerenciar fichas de personagens de for
 ## 🚀 Como Rodar Localmente
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/grimorio.git
+git clone https://github.com/K0W4/Grimorio.git
 
 # Abrir no Xcode
 open Grimorio.xcodeproj
