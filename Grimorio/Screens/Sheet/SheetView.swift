@@ -10,6 +10,9 @@ import SwiftData
 
 struct SheetView: View {
     @Bindable var character: Character
+    @Environment(\.dismiss) private var dismiss
+    
+    @State private var isEditing = false
     
     var body: some View {
         ScrollView {
@@ -38,6 +41,21 @@ struct SheetView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.backgroundSecondary, for: .navigationBar)
         .toolbarBackgroundVisibility(.visible, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    isEditing.toggle()
+                } label: {
+                    Image(systemName: "square.and.pencil")
+                }
+            }
+        }
+        .sheet(isPresented: $isEditing) {
+            SheetEditView(character: character, onCharacterDeleted: {
+                isEditing = false
+                dismiss()
+            })
+        }
     }
 }
 

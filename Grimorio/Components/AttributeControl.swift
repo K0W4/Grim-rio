@@ -26,7 +26,7 @@ struct AttributeControl: View {
                     .font(.system(.largeTitle, weight: .semibold))
             }
         }
-        .foregroundColor(.white)
+        .foregroundColor(.labelPrimary)
         .clipShape(Capsule())
     }
 }

@@ -15,6 +15,8 @@ struct StatusControl: View {
     
     var body: some View {
         ZStack {
+            Image(.status)
+            
             HStack {
                 Button(action: { if currentValue > 0 { currentValue -= 1 } }) {
                     Image(systemName: "minus")
@@ -37,12 +39,11 @@ struct StatusControl: View {
                 }
             }
             .padding(.horizontal)
-            .frame(width: 361, height: 50)
-            .background(color)
-            .clipShape(Capsule())
+            .frame(width: 355, height: 48)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(color))
             .foregroundStyle(.labelPrimary)
-            
-            Image(.status)
         }
     }
 }

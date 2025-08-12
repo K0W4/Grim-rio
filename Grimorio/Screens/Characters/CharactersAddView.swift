@@ -27,6 +27,7 @@ struct CharactersAddView: View {
     
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var characterImageData: Data?
+    @State private var inputedPhoto: PhotosPickerItem?
 
     private var isFormValid: Bool {
         !name.isEmpty &&
@@ -84,6 +85,10 @@ struct CharactersAddView: View {
                     }
                                     
                     // --- IMAGEM ---
+                    
+                    PhotosPicker(selection: $inputedPhoto) {
+                        Text("input image")
+                    }
 
                     Button {
                         addCharacter()
@@ -109,6 +114,10 @@ struct CharactersAddView: View {
                         .foregroundStyle(.accent)
                     }
                 }
+            }
+            .onChange(of: inputedPhoto) { oldValue, newValue in
+//                var data = try? await inputedPhoto?.loadTransferable(type: Data.self)
+                
             }
         }
     }

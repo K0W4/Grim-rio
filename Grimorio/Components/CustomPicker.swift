@@ -18,11 +18,18 @@ import SwiftUI
                 .font(.system(.body, weight: .semibold))
             Menu {
                 ForEach(T.allCases as! [T], id: \.self) { item in
-                    Button(action: {
+                    let selectedItem = selection == item
+                    
+                    Button {
                         selection = item
-                    }) {
-                        Text(item.rawValue)
-                            .foregroundStyle(.accent)
+                    } label : {
+                        HStack {
+                            Text(item.rawValue)
+                            
+                            if selectedItem {
+                                Image(systemName: "checkmark")
+                            }
+                        }
                     }
                 }
             } label: {
