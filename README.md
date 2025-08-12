@@ -2,9 +2,9 @@
 > **O seu grimório digital para gerenciar fichas de Ordem Paranormal.**  
 > Tudo o que um jogador precisa, na palma da mão.
 
-![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white) 
-![Swift](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)   
-![SwiftUI](https://img.shields.io/badge/SwiftUI-1575F9?style=for-the-badge&logo=swift&logoColor=white)  
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white)
+![Swift](https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white)
+![SwiftUI](https://img.shields.io/badge/SwiftUI-1575F9?style=for-the-badge&logo=swift&logoColor=white)     
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
 
 ---
