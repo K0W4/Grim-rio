@@ -29,6 +29,9 @@ struct SheetEditView: View {
     @State private var clas: Class?
     @State private var trail: Trail?
     @State private var nex: NEX?
+    
+    @State private var imageData: Data?
+    
     @State private var showingDeleteAlert = false
 
     var body: some View {
@@ -102,6 +105,14 @@ struct SheetEditView: View {
                         CustomPicker(title: "Trilha", placeholder: "Selecione sua trilha", selection: $trail)
                         CustomPicker(title: "NEX", placeholder: "Selecione seu NEX", selection: $nex)
                     }
+                    
+                    VStack(alignment: .center) {
+                        Text("Imagem de Perfil:")
+                            .font(.system(.body, weight: .semibold))
+                            .frame(width: 361, alignment: .leading)
+                                            
+                        ImagePicker(imageData: $imageData)
+                    }
                                     
                     ZStack {
                         Image(.deleteCorner)
@@ -161,6 +172,7 @@ struct SheetEditView: View {
         clas = character.clas
         trail = character.trail
         nex = character.nex
+        imageData = character.image
     }
     
     private func saveChanges() {
@@ -176,6 +188,7 @@ struct SheetEditView: View {
         if let clas { character.clas = clas }
         if let trail { character.trail = trail }
         if let nex { character.nex = nex }
+        character.image = imageData
     }
     
     private func deleteCharacter() {

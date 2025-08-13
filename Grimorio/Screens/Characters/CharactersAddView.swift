@@ -25,9 +25,7 @@ struct CharactersAddView: View {
     @State private var presence: Int = 0
     @State private var vigor: Int = 0
     
-    @State private var selectedPhoto: PhotosPickerItem?
     @State private var characterImageData: Data?
-    @State private var inputedPhoto: PhotosPickerItem?
 
     private var isFormValid: Bool {
         !name.isEmpty &&
@@ -84,11 +82,15 @@ struct CharactersAddView: View {
                         CustomPicker(title: "NEX", placeholder: "Selecione seu NEX", selection: $selectedNEX)
                     }
                                     
-                    // --- IMAGEM ---
-                    
-                    PhotosPicker(selection: $inputedPhoto) {
-                        Text("input image")
+                    VStack(alignment: .center) {
+                        Text("Imagem de Perfil:")
+                            .font(.system(.body, weight: .semibold))
+                            .frame(width: 361, alignment: .leading)
+                                            
+                        ImagePicker(imageData: $characterImageData)
                     }
+                    
+                    Spacer()
 
                     Button {
                         addCharacter()
@@ -114,10 +116,6 @@ struct CharactersAddView: View {
                         .foregroundStyle(.accent)
                     }
                 }
-            }
-            .onChange(of: inputedPhoto) { oldValue, newValue in
-//                var data = try? await inputedPhoto?.loadTransferable(type: Data.self)
-                
             }
         }
     }
