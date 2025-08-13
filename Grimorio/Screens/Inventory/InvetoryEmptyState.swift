@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InvetoryEmptyView: View {
+struct InventoryEmptyView: View {
     //    @Binding var addCharacter: Bool
         
         var body: some View {
@@ -40,5 +40,5 @@ struct InvetoryEmptyView: View {
 }
 
 #Preview {
-    InvetoryEmptyView()
+    InventoryEmptyView()
 }

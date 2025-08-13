@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct fixStats: View {
+struct FixStats: View {
     let character: Character
     
     var body: some View {

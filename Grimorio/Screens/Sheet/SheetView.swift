@@ -27,7 +27,7 @@ struct SheetView: View {
 
                 HStack(spacing: 16) {
                     Defense(character: character)
-                    fixStats(character: character)
+                    FixStats(character: character)
                 }
                                 
                 Protections(character: character)
@@ -53,7 +53,6 @@ struct SheetView: View {
         .sheet(isPresented: $isEditing) {
             SheetEditView(character: character, onCharacterDeleted: {
                 isEditing = false
-                dismiss()
             })
         }
     }
